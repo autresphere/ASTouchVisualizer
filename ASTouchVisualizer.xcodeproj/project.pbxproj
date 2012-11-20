@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4AA4DC84165BD61600F326CA /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AA4DC83165BD61600F326CA /* Readme.md */; };
+		4ABD602A16554AB1005E8371 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABD602916554AB1005E8371 /* UIKit.framework */; };
+		4ABD602C16554AB1005E8371 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABD602B16554AB1005E8371 /* Foundation.framework */; };
+		4ABD602E16554AB1005E8371 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABD602D16554AB1005E8371 /* CoreGraphics.framework */; };
+		4ABD603416554AB2005E8371 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4ABD603216554AB2005E8371 /* InfoPlist.strings */; };
+		4ABD603616554AB2005E8371 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD603516554AB2005E8371 /* main.m */; };
+		4ABD603A16554AB2005E8371 /* ASAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD603916554AB2005E8371 /* ASAppDelegate.m */; };
+		4ABD603C16554AB2005E8371 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABD603B16554AB2005E8371 /* Default.png */; };
+		4ABD603E16554AB2005E8371 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABD603D16554AB2005E8371 /* Default@2x.png */; };
+		4ABD604016554AB2005E8371 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ABD603F16554AB2005E8371 /* Default-568h@2x.png */; };
+		4ABD604316554AB2005E8371 /* ASViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD604216554AB2005E8371 /* ASViewController.m */; };
+		4ABD604616554AB2005E8371 /* ASViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ABD604416554AB2005E8371 /* ASViewController.xib */; };
+		4ABD60531655540F005E8371 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABD60521655540F005E8371 /* QuartzCore.framework */; };
+		4ABD606016556452005E8371 /* ASTouchVisualizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABD605F16556452005E8371 /* ASTouchVisualizer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4AA4DC83165BD61600F326CA /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.md; sourceTree = "<group>"; };
+		4ABD602516554AB1005E8371 /* ASTouchVisualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASTouchVisualizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ABD602916554AB1005E8371 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4ABD602B16554AB1005E8371 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4ABD602D16554AB1005E8371 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4ABD603116554AB2005E8371 /* ASTouchVisualizer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ASTouchVisualizer-Info.plist"; sourceTree = "<group>"; };
+		4ABD603316554AB2005E8371 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4ABD603516554AB2005E8371 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4ABD603716554AB2005E8371 /* ASTouchVisualizer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ASTouchVisualizer-Prefix.pch"; sourceTree = "<group>"; };
+		4ABD603816554AB2005E8371 /* ASAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASAppDelegate.h; sourceTree = "<group>"; };
+		4ABD603916554AB2005E8371 /* ASAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASAppDelegate.m; sourceTree = "<group>"; };
+		4ABD603B16554AB2005E8371 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		4ABD603D16554AB2005E8371 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		4ABD603F16554AB2005E8371 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4ABD604116554AB2005E8371 /* ASViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASViewController.h; sourceTree = "<group>"; };
+		4ABD604216554AB2005E8371 /* ASViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASViewController.m; sourceTree = "<group>"; };
+		4ABD604516554AB2005E8371 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ASViewController.xib; sourceTree = "<group>"; };
+		4ABD60521655540F005E8371 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4ABD605E16556452005E8371 /* ASTouchVisualizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTouchVisualizer.h; sourceTree = "<group>"; };
+		4ABD605F16556452005E8371 /* ASTouchVisualizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTouchVisualizer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4ABD602216554AB1005E8371 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ABD60531655540F005E8371 /* QuartzCore.framework in Frameworks */,
+				4ABD602A16554AB1005E8371 /* UIKit.framework in Frameworks */,
+				4ABD602C16554AB1005E8371 /* Foundation.framework in Frameworks */,
+				4ABD602E16554AB1005E8371 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4ABD601A16554AB1005E8371 = {
+			isa = PBXGroup;
+			children = (
+				4AA4DC83165BD61600F326CA /* Readme.md */,
+				4ABD602F16554AB1005E8371 /* ASTouchVisualizer */,
+				4ABD602816554AB1005E8371 /* Frameworks */,
+				4ABD602616554AB1005E8371 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4ABD602616554AB1005E8371 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4ABD602516554AB1005E8371 /* ASTouchVisualizer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4ABD602816554AB1005E8371 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4ABD60521655540F005E8371 /* QuartzCore.framework */,
+				4ABD602916554AB1005E8371 /* UIKit.framework */,
+				4ABD602B16554AB1005E8371 /* Foundation.framework */,
+				4ABD602D16554AB1005E8371 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4ABD602F16554AB1005E8371 /* ASTouchVisualizer */ = {
+			isa = PBXGroup;
+			children = (
+				4ABD603816554AB2005E8371 /* ASAppDelegate.h */,
+				4ABD603916554AB2005E8371 /* ASAppDelegate.m */,
+				4ABD604116554AB2005E8371 /* ASViewController.h */,
+				4ABD604216554AB2005E8371 /* ASViewController.m */,
+				4ABD604416554AB2005E8371 /* ASViewController.xib */,
+				4ABD605E16556452005E8371 /* ASTouchVisualizer.h */,
+				4ABD605F16556452005E8371 /* ASTouchVisualizer.m */,
+				4ABD603016554AB2005E8371 /* Supporting Files */,
+			);
+			path = ASTouchVisualizer;
+			sourceTree = "<group>";
+		};
+		4ABD603016554AB2005E8371 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4ABD603116554AB2005E8371 /* ASTouchVisualizer-Info.plist */,
+				4ABD603216554AB2005E8371 /* InfoPlist.strings */,
+				4ABD603516554AB2005E8371 /* main.m */,
+				4ABD603716554AB2005E8371 /* ASTouchVisualizer-Prefix.pch */,
+				4ABD603B16554AB2005E8371 /* Default.png */,
+				4ABD603D16554AB2005E8371 /* Default@2x.png */,
+				4ABD603F16554AB2005E8371 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4ABD602416554AB1005E8371 /* ASTouchVisualizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ABD604916554AB2005E8371 /* Build configuration list for PBXNativeTarget "ASTouchVisualizer" */;
+			buildPhases = (
+				4ABD602116554AB1005E8371 /* Sources */,
+				4ABD602216554AB1005E8371 /* Frameworks */,
+				4ABD602316554AB1005E8371 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ASTouchVisualizer;
+			productName = ASTouchVisualizer;
+			productReference = 4ABD602516554AB1005E8371 /* ASTouchVisualizer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4ABD601C16554AB1005E8371 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AS;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = AutreSphere;
+			};
+			buildConfigurationList = 4ABD601F16554AB1005E8371 /* Build configuration list for PBXProject "ASTouchVisualizer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4ABD601A16554AB1005E8371;
+			productRefGroup = 4ABD602616554AB1005E8371 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4ABD602416554AB1005E8371 /* ASTouchVisualizer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4ABD602316554AB1005E8371 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ABD603416554AB2005E8371 /* InfoPlist.strings in Resources */,
+				4ABD603C16554AB2005E8371 /* Default.png in Resources */,
+				4ABD603E16554AB2005E8371 /* Default@2x.png in Resources */,
+				4ABD604016554AB2005E8371 /* Default-568h@2x.png in Resources */,
+				4ABD604616554AB2005E8371 /* ASViewController.xib in Resources */,
+				4AA4DC84165BD61600F326CA /* Readme.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4ABD602116554AB1005E8371 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ABD603616554AB2005E8371 /* main.m in Sources */,
+				4ABD603A16554AB2005E8371 /* ASAppDelegate.m in Sources */,
+				4ABD604316554AB2005E8371 /* ASViewController.m in Sources */,
+				4ABD606016556452005E8371 /* ASTouchVisualizer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4ABD603216554AB2005E8371 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ABD603316554AB2005E8371 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4ABD604416554AB2005E8371 /* ASViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4ABD604516554AB2005E8371 /* en */,
+			);
+			name = ASViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4ABD604716554AB2005E8371 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		4ABD604816554AB2005E8371 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4ABD604A16554AB2005E8371 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ASTouchVisualizer/ASTouchVisualizer-Prefix.pch";
+				INFOPLIST_FILE = "ASTouchVisualizer/ASTouchVisualizer-Info.plist";
+				PRODUCT_NAME = ASTouchVisualizer;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4ABD604B16554AB2005E8371 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ASTouchVisualizer/ASTouchVisualizer-Prefix.pch";
+				INFOPLIST_FILE = "ASTouchVisualizer/ASTouchVisualizer-Info.plist";
+				PRODUCT_NAME = ASTouchVisualizer;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4ABD601F16554AB1005E8371 /* Build configuration list for PBXProject "ASTouchVisualizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ABD604716554AB2005E8371 /* Debug */,
+				4ABD604816554AB2005E8371 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4ABD604916554AB2005E8371 /* Build configuration list for PBXNativeTarget "ASTouchVisualizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4ABD604A16554AB2005E8371 /* Debug */,
+				4ABD604B16554AB2005E8371 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4ABD601C16554AB1005E8371 /* Project object */;
+}
