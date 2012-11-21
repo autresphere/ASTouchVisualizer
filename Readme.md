@@ -1,3 +1,4 @@
+## ASTouchVisualizer
 ASTouchVisualizer is a simple class that shows the current touch event on top of all your views.
 
 It is used to create iPhone or iPad video tutorials on which finger movement is clearly seen.
@@ -14,13 +15,19 @@ It supports all orientations change.
 Just copy ASTouchVisualizer.h and ASTouchVisualizer.m in your project.
 
 In your App delegate, add
-
-`#import "ASTouchVisualizer.h"`
+``` objective-c
+#import "ASTouchVisualizer.h"
+```
 
 then just after
-
-`[self.window makeKeyAndVisible];`
+``` objective-c
+[self.window makeKeyAndVisible];
+```
 
 call
+``` objective-c
+[ASTouchVisualizer install];
+```
 
-`[ASTouchVisualizer install];`
+## Limitations
+Multitouch is not supported for now, only the first touch is shown.
