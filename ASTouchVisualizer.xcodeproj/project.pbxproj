@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4AA4DC84165BD61600F326CA /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 4AA4DC83165BD61600F326CA /* Readme.md */; };
+		4AA4DC92165CB5BF00F326CA /* license in Resources */ = {isa = PBXBuildFile; fileRef = 4AA4DC91165CB5BF00F326CA /* license */; };
 		4ABD602A16554AB1005E8371 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABD602916554AB1005E8371 /* UIKit.framework */; };
 		4ABD602C16554AB1005E8371 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABD602B16554AB1005E8371 /* Foundation.framework */; };
 		4ABD602E16554AB1005E8371 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABD602D16554AB1005E8371 /* CoreGraphics.framework */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		4AA4DC83165BD61600F326CA /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.md; sourceTree = "<group>"; };
+		4AA4DC91165CB5BF00F326CA /* license */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license; sourceTree = "<group>"; };
 		4ABD602516554AB1005E8371 /* ASTouchVisualizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASTouchVisualizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ABD602916554AB1005E8371 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4ABD602B16554AB1005E8371 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,6 +66,7 @@
 		4ABD601A16554AB1005E8371 = {
 			isa = PBXGroup;
 			children = (
+				4AA4DC91165CB5BF00F326CA /* license */,
 				4AA4DC83165BD61600F326CA /* Readme.md */,
 				4ABD602F16554AB1005E8371 /* ASTouchVisualizer */,
 				4ABD602816554AB1005E8371 /* Frameworks */,
@@ -177,6 +180,7 @@
 				4ABD604016554AB2005E8371 /* Default-568h@2x.png in Resources */,
 				4ABD604616554AB2005E8371 /* ASViewController.xib in Resources */,
 				4AA4DC84165BD61600F326CA /* Readme.md in Resources */,
+				4AA4DC92165CB5BF00F326CA /* license in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
