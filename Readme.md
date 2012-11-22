@@ -30,5 +30,3 @@ call
 [ASTouchVisualizer install];
 ```
 
-## Limitations
-Multitouch is not supported for now, only the first touch is shown.

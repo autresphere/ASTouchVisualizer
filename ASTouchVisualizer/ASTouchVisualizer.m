@@ -20,9 +20,13 @@ static ASTouchVisualizer *touchVisualizer;
 @class ASTouchView;
 
 @interface ASTouchVisualizer ()
+{
+    CFMutableDictionaryRef touchViews;
+}
 @property (nonatomic, strong) UIView *mainView;
-@property (nonatomic, strong) ASTouchView *touchView;
+
 + (ASTouchVisualizer *)sharedTouchVisualizer;
+- (void)showTouches:(NSSet *)touches;
 @end
 
 @interface ASTouchView : UIView
@@ -120,29 +124,10 @@ static ASTouchVisualizer *touchVisualizer;
 
 @implementation UIWindow (TouchVisualizer)
 
-- (void)showTouchAtLocation:(CGPoint)location
-{
-    ASTouchView *touchView;
-    
-    touchView = [ASTouchVisualizer sharedTouchVisualizer].touchView;
-    touchView.center = location;
-    if(![touchView isVisible])
-    {
-        [touchView show];
-    }
-}
-
 - (void)swizzled_sendEvent:(UIEvent *)event
 {
-    UITouch *touch;
-    
-    touch = [event.allTouches anyObject];
+    [[ASTouchVisualizer sharedTouchVisualizer] showTouches:event.allTouches];    
     [self swizzled_sendEvent:event];
-    [self showTouchAtLocation:[touch locationInView:[ASTouchVisualizer sharedTouchVisualizer].mainView]];
-    if(touch.phase == UITouchPhaseEnded)
-    {
-        [[ASTouchVisualizer sharedTouchVisualizer].touchView hide];
-    }
 }
 
 @end
@@ -185,10 +170,19 @@ static ASTouchVisualizer *touchVisualizer;
     [window addSubview:self.mainView];
 }
 
-- (void)setupTouchView
+- (ASTouchView *)touchViewForTouch:(UITouch *)touch
 {
-    self.touchView = [[ASTouchView alloc] initWithFrame:CGRectMake(0, 0, kTouchViewSize, kTouchViewSize)];
-    [self.mainView addSubview:self.touchView];
+    ASTouchView *touchView;
+    
+    touchView = (ASTouchView *)CFDictionaryGetValue(touchViews, (__bridge const void *)(touch));
+    if(touchView == nil)
+    {
+        touchView = [[ASTouchView alloc] initWithFrame:CGRectMake(0, 0, kTouchViewSize, kTouchViewSize)];
+        [self.mainView addSubview:touchView];
+        CFDictionaryAddValue(touchViews, (__bridge const void *)(touch), (__bridge const void *)(touchView));
+    }
+    
+    return touchView;
 }
 
 - (id)init
@@ -198,7 +192,7 @@ static ASTouchVisualizer *touchVisualizer;
     {
         [self setupEventHandler];
         [self setupMainView];
-        [self setupTouchView];
+        touchViews = CFDictionaryCreateMutable(NULL, 0, NULL, NULL);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidChangeStatusBarOrientationNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActiveNotification:) name:UIApplicationWillResignActiveNotification object:nil];
         [[UIApplication sharedApplication].keyWindow addObserver:self forKeyPath:@"rootViewController" options:NSKeyValueObservingOptionNew context:nil];
@@ -207,10 +201,43 @@ static ASTouchVisualizer *touchVisualizer;
     return self;
 }
 
+- (void)showTouches:(NSSet *)touches
+{
+    for(UITouch *touch in touches)
+    {
+        [self showTouch:touch];
+    }
+}
+
+- (void)showTouch:(UITouch *)touch
+{
+    ASTouchView *touchView;
+    CGPoint location;
+    
+    location = [touch locationInView:self.mainView];
+    touchView = [self touchViewForTouch:touch];
+    touchView.center = location;
+    if(![touchView isVisible])
+    {
+        [touchView show];
+    }
+    if(touch.phase == UITouchPhaseEnded)
+    {
+        CFDictionaryRemoveValue(touchViews, (__bridge const void *)(touch));
+        [touchView hide];
+    }
+}
+
+- (void)hideAllTouchViews
+{
+    CFDictionaryRemoveAllValues(touchViews);
+    [self.mainView.subviews makeObjectsPerformSelector:@selector(hide)];
+}
+
 #pragma mark - Notifications
 - (void)applicationWillResignActiveNotification:(NSNotification *)notification
 {
-    [[ASTouchVisualizer sharedTouchVisualizer].touchView hide];
+    [[ASTouchVisualizer sharedTouchVisualizer] hideAllTouchViews];
 }
 
 - (void)applicationDidChangeStatusBarOrientationNotification:(NSNotification *)notification
