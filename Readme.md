@@ -1,5 +1,5 @@
 ## ASTouchVisualizer
-ASTouchVisualizer is a simple class that shows the current touch event on top of all your views.
+ASTouchVisualizer is a simple class that shows multitouch events on top of all your views.
 
 It is used to create iPhone or iPad video tutorials on which finger movement is clearly seen.
 
