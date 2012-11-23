@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'TouchCast' target in the 'TouchCast' project
+// Prefix header for all source files of the 'ASTouchVisualizer' target in the 'ASTouchVisualizer' project
 //
 
 #import <Availability.h>
