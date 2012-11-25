@@ -29,4 +29,5 @@ call
 ``` objective-c
 [ASTouchVisualizer install];
 ```
-
+### ARC Support
+This class requires ARC.
