@@ -246,6 +246,9 @@ static ASTouchVisualizer *touchVisualizer;
 
 - (void)showTouch:(UITouch *)touch
 {
+    // Make sure mainView is at the top of the view hierarchy
+    [self.mainView.superview bringSubviewToFront:self.mainView];
+
     ASTouchView *touchView;
     CGPoint location;
     
