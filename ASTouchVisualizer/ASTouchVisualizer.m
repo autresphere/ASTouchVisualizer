@@ -24,7 +24,8 @@ static ASTouchVisualizer *touchVisualizer;
     CFMutableDictionaryRef touchViews;
 }
 @property (nonatomic, strong) UIView *mainView;
-@property (getter=isInstalled) BOOL installed;
+@property (nonatomic, getter=isInstalled) BOOL installed;
+
 + (ASTouchVisualizer *)sharedTouchVisualizer;
 - (void)showTouches:(NSSet *)touches;
 @end

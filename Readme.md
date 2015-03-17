@@ -20,14 +20,17 @@ In your App delegate, add
 #import "ASTouchVisualizer.h"
 ```
 
-then just after
-``` objective-c
-[self.window makeKeyAndVisible];
-```
-
-call
+then at the end of ```application:didFinishLaunchingWithOptions:```, just call
 ``` objective-c
 [ASTouchVisualizer install];
 ```
+
+Thanks to @	johnboiles, you can also uninstall it by calling
+``` objective-c
+[ASTouchVisualizer uninstall];
+```
+### Supported iOS
+iOS 5.0 and above.
+
 ### ARC Support
-This class requires ARC.
+ASTouchVisualizer requires ARC. If you wish to use ASTouchVisualizer in a non-ARC project, just add the -fobjc-arc compiler flag to the ASTouchVisualizer.m class. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click ASTouchVisualizer.m in the list and type -fobjc-arc into the popover.
