@@ -24,6 +24,7 @@ static ASTouchVisualizer *touchVisualizer;
     CFMutableDictionaryRef touchViews;
 }
 @property (nonatomic, strong) UIView *mainView;
+@property (nonatomic, getter=isInstalled) BOOL installed;
 
 + (ASTouchVisualizer *)sharedTouchVisualizer;
 - (void)showTouches:(NSSet *)touches;
@@ -145,7 +146,17 @@ static ASTouchVisualizer *touchVisualizer;
 
 + (void)install
 {
-    [ASTouchVisualizer sharedTouchVisualizer];
+    [[ASTouchVisualizer sharedTouchVisualizer] install];
+}
+
++ (void)uninstall
+{
+    [[ASTouchVisualizer sharedTouchVisualizer] uninstall];
+}
+
++ (BOOL)isInstalled
+{
+    return [[ASTouchVisualizer sharedTouchVisualizer] isInstalled];
 }
 
 - (void)setupEventHandler
@@ -190,15 +201,40 @@ static ASTouchVisualizer *touchVisualizer;
     self = [super init];
     if(self)
     {
-        [self setupEventHandler];
-        [self setupMainView];
         touchViews = CFDictionaryCreateMutable(NULL, 0, NULL, NULL);
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidChangeStatusBarOrientationNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActiveNotification:) name:UIApplicationWillResignActiveNotification object:nil];
-        [[UIApplication sharedApplication].keyWindow addObserver:self forKeyPath:@"rootViewController" options:NSKeyValueObservingOptionNew context:nil];
     }
     
     return self;
+}
+
+- (void)install
+{
+    if (self.installed) {
+        return;
+    }
+    [self setupEventHandler];
+    [self setupMainView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidChangeStatusBarOrientationNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActiveNotification:) name:UIApplicationWillResignActiveNotification object:nil];
+    [[UIApplication sharedApplication].keyWindow addObserver:self forKeyPath:@"rootViewController" options:NSKeyValueObservingOptionNew context:nil];
+    self.installed = YES;
+}
+
+- (void)uninstall
+{
+    if (!self.installed) {
+        return;
+    }
+    [self setupEventHandler];
+    [[UIApplication sharedApplication].keyWindow removeObserver:self forKeyPath:@"rootViewController"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.mainView removeFromSuperview];
+    self.mainView = nil;
+    for (UIView *touchView in ((__bridge NSMutableDictionary *)touchViews).objectEnumerator) {
+        [touchView removeFromSuperview];
+    }
+    [((__bridge NSMutableDictionary *)touchViews) removeAllObjects];
+    self.installed = NO;
 }
 
 - (void)showTouches:(NSSet *)touches
@@ -211,6 +247,9 @@ static ASTouchVisualizer *touchVisualizer;
 
 - (void)showTouch:(UITouch *)touch
 {
+    // Make sure mainView is at the top of the view hierarchy
+    [self.mainView.superview bringSubviewToFront:self.mainView];
+
     ASTouchView *touchView;
     CGPoint location;
     

@@ -7,9 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface ASTouchVisualizer : NSObject
 
++ (BOOL)isInstalled;
+
 + (void)install;
+
++ (void)uninstall;
 
 @end
