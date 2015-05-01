@@ -33,6 +33,7 @@ static ASTouchVisualizer *touchVisualizer;
 @interface ASTouchView : UIView
 @property (nonatomic, strong) UIView *markView;
 @property (nonatomic, strong) UIView *attentionView;
+@property (readonly, nonatomic) UIWindow *window;
 @end
 
 @implementation ASTouchView
@@ -170,15 +171,12 @@ static ASTouchVisualizer *touchVisualizer;
 
 - (void)setupMainView
 {
-    UIWindow *window;
-    
-    window = [UIApplication sharedApplication].keyWindow;
-    self.mainView = [[UIView alloc] initWithFrame:window.bounds];
+    self.mainView = [[UIView alloc] initWithFrame:self.window.bounds];
     self.mainView.backgroundColor = [UIColor clearColor];
     self.mainView.opaque = NO;
     self.mainView.userInteractionEnabled = NO;
-    self.mainView.transform = window.rootViewController.view.transform;
-    [window addSubview:self.mainView];
+    self.mainView.transform = self.window.rootViewController.view.transform;
+    [self.window addSubview:self.mainView];
 }
 
 - (ASTouchView *)touchViewForTouch:(UITouch *)touch
@@ -216,7 +214,7 @@ static ASTouchVisualizer *touchVisualizer;
     [self setupMainView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidChangeStatusBarOrientationNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillResignActiveNotification:) name:UIApplicationWillResignActiveNotification object:nil];
-    [[UIApplication sharedApplication].keyWindow addObserver:self forKeyPath:@"rootViewController" options:NSKeyValueObservingOptionNew context:nil];
+    [self.window addObserver:self forKeyPath:@"rootViewController" options:NSKeyValueObservingOptionNew context:nil];
     self.installed = YES;
 }
 
@@ -226,7 +224,7 @@ static ASTouchVisualizer *touchVisualizer;
         return;
     }
     [self setupEventHandler];
-    [[UIApplication sharedApplication].keyWindow removeObserver:self forKeyPath:@"rootViewController"];
+    [self.window removeObserver:self forKeyPath:@"rootViewController"];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.mainView removeFromSuperview];
     self.mainView = nil;
@@ -273,6 +271,14 @@ static ASTouchVisualizer *touchVisualizer;
     [self.mainView.subviews makeObjectsPerformSelector:@selector(hide)];
 }
 
+- (UIWindow *)window {
+    if ([[UIApplication sharedApplication].delegate respondsToSelector:@selector(window)]) {
+        return [UIApplication sharedApplication].delegate.window;
+    } else {
+        return [UIApplication sharedApplication].keyWindow;
+    }
+}
+
 #pragma mark - Notifications
 - (void)applicationWillResignActiveNotification:(NSNotification *)notification
 {
@@ -281,13 +287,13 @@ static ASTouchVisualizer *touchVisualizer;
 
 - (void)applicationDidChangeStatusBarOrientationNotification:(NSNotification *)notification
 {
-    self.mainView.transform = [UIApplication sharedApplication].keyWindow.rootViewController.view.transform;
+    self.mainView.transform = self.window.rootViewController.view.transform;
 }
 
 #pragma mark - KVO Observing
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    self.mainView.transform = [UIApplication sharedApplication].keyWindow.rootViewController.view.transform;
+    self.mainView.transform = self.window.rootViewController.view.transform;
     [self.mainView.superview bringSubviewToFront:self.mainView];
 }
 @end
