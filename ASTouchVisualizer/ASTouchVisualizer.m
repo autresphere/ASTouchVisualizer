@@ -258,7 +258,7 @@ static ASTouchVisualizer *touchVisualizer;
     {
         [touchView show];
     }
-    if(touch.phase == UITouchPhaseEnded)
+    if(touch.phase == UITouchPhaseEnded || touch.phase == UITouchPhaseCancelled)
     {
         CFDictionaryRemoveValue(touchViews, (__bridge const void *)(touch));
         [touchView hide];
